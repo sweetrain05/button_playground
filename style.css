@@ -246,6 +246,31 @@ li {
   border-color: rgb(84, 172, 255) transparent transparent transparent;
 }
 
+@media only screen and (min-width: 200px) and (max-width: 500px) {
+  .modalBox {
+    width: 100%;
+    height: 80%;
+  }
+
+  .category {
+    font-size: 1.2rem;
+    text-align: left;
+    padding: 1rem 0.5rem 0.5rem 0.5rem;
+  }
+
+  .codeBox {
+    background-color: #dbe9f4;
+    border: 1px solid #7d8388;
+    width: 90%;
+    height: auto;
+    color: black;
+    padding: 1rem;
+    margin: 0 0.5rem 1rem 0.5rem;
+    text-align: left;
+    overflow-x: scroll;
+  }
+}
+
 @media only screen and (min-width: 768px) {
   .design-container {
     text-align: center;
