@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/b50c41c081.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Design your Button!</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Button Playground</h1>
+      <div class="design-container">
+        <div class="box">
+          <h3>Pick your Color</h3>
+          <ul>
+            <li>
+              Background Color
+              <input
+                id="backgroundColorPicker"
+                class="picker"
+                type="color"
+                value="#DBE9F4"
+              />
+            </li>
+            <li>
+              Font Color
+              <input
+                id="fontColorPicker"
+                class="picker"
+                type="color"
+                value="#676767"
+              />
+            </li>
+            <li>
+              Border Color
+              <input
+                id="BorderColorPicker"
+                class="picker"
+                type="color"
+                value="#808080"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Design your Border</h3>
+          <ul>
+            <li>
+              Thickness
+              <input
+                id="thickness"
+                class="range"
+                type="range"
+                value="1"
+                min="0"
+                max="5"
+              />
+            </li>
+            <li>
+              Line Type
+              <div class="radio-div">
+                <span class="radio-span">
+                  <input
+                    type="radio"
+                    id="borderTypeChoice1"
+                    class="borderRadio"
+                    name="borderType"
+                    value="Solid"
+                    checked
+                  />
+                  <label for="borderTypeChoice1">Solid</label></span
+                >
+                <span class="radio-span">
+                  <input
+                    type="radio"
+                    id="borderTypeChoice2"
+                    class="borderRadio"
+                    name="borderType"
+                    value="Dotted"
+                  />
+                  <label for="borderTypeChoice2">Dotted</label></span
+                >
+                <span class="radio-span">
+                  <input
+                    type="radio"
+                    id="borderTypeChoice3"
+                    class="borderRadio"
+                    name="borderType"
+                    value="None"
+                  />
+                  <label for="borderTypeChoice3">None</label></span
+                >
+              </div>
+            </li>
+            <li>
+              Roundness
+              <input
+                id="radius"
+                class="range"
+                type="range"
+                value="15"
+                min="0"
+                max="30"
+              />
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Choose your Font</h3>
+          <ul>
+            <li>
+              Font
+              <select id="fontlist">
+                <option value="Lato">Lato</option>
+                <option value="Titan One">Titan One</option>
+                <option value="Nunito">Nunito</option>
+                <option value="Dangrek">Dangrek</option>
+              </select>
+            </li>
+            <li>
+              Font Size
+              <input
+                id="fontSize"
+                class="range"
+                type="range"
+                value="18"
+                min="9"
+                max="30"
+              />
+            </li>
+            <li>
+              Font Style
+
+              <div class="radio-div">
+                <span class="radio-span">
+                  <input
+                    type="radio"
+                    id="fontStyleChoice1"
+                    class="fontRadio"
+                    value="Bold"
+                  />
+                  <label for="fontStyleChoice1">Bold</label></span
+                >
+                <span class="radio-span">
+                  <input
+                    type="radio"
+                    id="fontStyleChoice2"
+                    class="fontRadio"
+                    value="Italic"
+                  />
+                  <label for="fontStyleChoice2">Italic</label></span
+                >
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button id="btn" class="button">CLICK ON ME</button>
+        <i class="fa-solid fa-code"></i>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal">
+        <div class="modalContainer">
+          <div class="modalBox">
+            <div class="exit">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="category">
+              HTML Code <i id="htmlCopy" class="fa-solid fa-copy"></i>
+              <div id="copyAlert1" class="copyAlert">copied!</div>
+            </div>
+            <div id="htmlCode" class="codeBox">
+              <xmp> <button class="button">CLICK ON ME</button></xmp>
+            </div>
+            <div class="category">
+              CSS Code <i id="cssCopy" class="fa-solid fa-copy"></i>
+              <div id="copyAlert2" class="copyAlert">copied!</div>
+            </div>
+            <div id="cssCode" class="codeBox"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="app.js"></script>
+</html>
