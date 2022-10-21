@@ -1,5 +1,4 @@
 <h3># button_playground</h3>
-</br>
 <h4>
 Welcome to Button Playground! </br></br>
 Create a simple button with Button Playground. </br></br>
