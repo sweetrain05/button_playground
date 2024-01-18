@@ -8,24 +8,24 @@ let colorPicker = document.querySelector(".picker");
 // Background Color
 let bgColor = document.getElementById("backgroundColorPicker");
 bgColor.addEventListener("input", (e) => {
-  btn.style.backgroundColor = bgColor.value;
+    btn.style.backgroundColor = bgColor.value;
 });
 
 // Font Color
 let fontColor = document.getElementById("fontColorPicker");
 fontColor.addEventListener("input", (e) => {
-  btn.style.color = fontColor.value;
-  if (fontColor.value == "#FFFFFF") {
-    colorPicker.style.border = true;
-  } else {
-    colorPicker.style.border = none;
-  }
+    btn.style.color = fontColor.value;
+    if (fontColor.value == "#FFFFFF") {
+        colorPicker.style.border = true;
+    } else {
+        colorPicker.style.border = none;
+    }
 });
 
 // Border Color
 let borderColor = document.getElementById("BorderColorPicker");
 borderColor.addEventListener("input", (e) => {
-  btn.style.borderColor = borderColor.value;
+    btn.style.borderColor = borderColor.value;
 });
 
 // Design your Border Section
@@ -33,33 +33,33 @@ borderColor.addEventListener("input", (e) => {
 // Border Thickness
 let borderThickness = document.getElementById("thickness");
 borderThickness.addEventListener("change", () => {
-  btn.style.borderWidth = borderThickness.value + "px";
+    btn.style.borderWidth = borderThickness.value + "px";
 });
 
 // Border Line Design
 let borderType = document.querySelectorAll(".borderRadio");
 for (let i = 0; i < borderType.length; i++) {
-  borderType[i].addEventListener("click", () => {
-    switch (borderType[i].value) {
-      case "Solid":
-        btn.style.borderStyle = "none";
-        btn.style.borderStyle = "solid";
-        break;
-      case "Dotted":
-        btn.style.borderStyle = "none";
-        btn.style.borderStyle = "dotted";
-        break;
-      case "None":
-        btn.style.borderStyle = "none";
-        break;
-    }
-  });
+    borderType[i].addEventListener("click", () => {
+        switch (borderType[i].value) {
+            case "Solid":
+                btn.style.borderStyle = "none";
+                btn.style.borderStyle = "solid";
+                break;
+            case "Dotted":
+                btn.style.borderStyle = "none";
+                btn.style.borderStyle = "dotted";
+                break;
+            case "None":
+                btn.style.borderStyle = "none";
+                break;
+        }
+    });
 }
 
 // Border Roundness
 let borderRadius = document.getElementById("radius");
 borderRadius.addEventListener("change", () => {
-  btn.style.borderRadius = borderRadius.value + "px";
+    btn.style.borderRadius = borderRadius.value + "px";
 });
 
 // Choose your Font Section
@@ -67,51 +67,51 @@ borderRadius.addEventListener("change", () => {
 // Font Name
 let fontName = document.getElementById("fontlist");
 fontName.addEventListener("change", () => {
-  switch (fontName.value) {
-    case "Lato":
-      btn.style.fontFamily = "'Lato', sans-serif";
-      break;
-    case "Nunito":
-      btn.style.fontFamily = "'Nunito', sans-serif";
-      break;
-    case "Dangrek":
-      btn.style.fontFamily = "'Dangrek', cursive";
-      break;
-    case "Titan One":
-      btn.style.fontFamily = "'Titan One', cursive";
-      break;
-  }
+    switch (fontName.value) {
+        case "Lato":
+            btn.style.fontFamily = "'Lato', sans-serif";
+            break;
+        case "Nunito":
+            btn.style.fontFamily = "'Nunito', sans-serif";
+            break;
+        case "Dangrek":
+            btn.style.fontFamily = "'Dangrek', cursive";
+            break;
+        case "Titan One":
+            btn.style.fontFamily = "'Titan One', cursive";
+            break;
+    }
 });
 
 // Font Size
 let fontSize = document.getElementById("fontSize");
 fontSize.addEventListener("change", () => {
-  btn.style.fontSize = fontSize.value + "px";
+    btn.style.fontSize = fontSize.value + "px";
 });
 
 // Font Style
 let fontStyle = document.querySelectorAll(".fontRadio");
 for (let i = 0; i < fontStyle.length; i++) {
-  fontStyle[i].addEventListener("click", () => {
-    switch (fontStyle[i].value) {
-      case "Bold":
-        if (btn.style.fontWeight != 900) {
-          btn.style.fontWeight = 900;
-        } else {
-          btn.style.fontWeight = 400;
-          fontStyle[i].checked = false;
+    fontStyle[i].addEventListener("click", () => {
+        switch (fontStyle[i].value) {
+            case "Bold":
+                if (btn.style.fontWeight != 900) {
+                    btn.style.fontWeight = 900;
+                } else {
+                    btn.style.fontWeight = 400;
+                    fontStyle[i].checked = false;
+                }
+                break;
+            case "Italic":
+                if (btn.style.fontStyle != "italic") {
+                    btn.style.fontStyle = "italic";
+                } else {
+                    btn.style.fontStyle = "normal";
+                    fontStyle[i].checked = false;
+                }
+                break;
         }
-        break;
-      case "Italic":
-        if (btn.style.fontStyle != "italic") {
-          btn.style.fontStyle = "italic";
-        } else {
-          btn.style.fontStyle = "normal";
-          fontStyle[i].checked = false;
-        }
-        break;
-    }
-  });
+    });
 }
 
 // Code Snippet : Update code after any change in button property
@@ -120,39 +120,70 @@ let cssCode = document.getElementById("cssCode");
 let htmlCode = document.getElementById("htmlCode");
 
 function loadCode() {
-  var newCode = `.button { <br>
+    var newCode = `.button { <br>
 
         &nbsp;&nbsp;&nbsp;background-color: ${bgColor.value}; <br>
         &nbsp;&nbsp;&nbsp;color: ${fontColor.value}; <br>
         &nbsp;&nbsp;&nbsp;border-color: ${borderColor.value}; <br><br>
-    
         &nbsp;&nbsp;&nbsp;border-width: ${borderThickness.value}px; <br>
-        &nbsp;&nbsp;&nbsp;border-style: ${borderType.value}; <br>
+		${
+            btn.style.borderStyle
+                ? `&nbsp;&nbsp;&nbsp;border-style: ${btn.style.borderStyle}<br>`
+                : ""
+        }
         &nbsp;&nbsp;&nbsp;border-radius: ${borderRadius.value}px; <br><br>
-    
         &nbsp;&nbsp;&nbsp;font-family: ${fontName.value}; <br>
         &nbsp;&nbsp;&nbsp;font-size: ${fontSize.value}px; <br>
-        &nbsp;&nbsp;&nbsp;font-style: ${fontStyle.value}; <br><br>
-    
+		${
+            btn.style.fontWeight === "900"
+                ? `&nbsp;&nbsp;&nbsp;font-weight: ${btn.style.fontWeight}<br>`
+                : ""
+        }
+		${
+            btn.style.fontStyle === "italic"
+                ? `&nbsp;&nbsp;&nbsp;font-style: ${btn.style.fontStyle}<br>`
+                : ""
+        }
+		<br>
         &nbsp;&nbsp;&nbsp;padding: 1rem 2rem; <br>
         &nbsp;&nbsp;&nbsp;cursor: pointer; <br>
             }
             `;
-  cssCode.innerHTML = newCode;
+    cssCode.innerHTML = newCode;
 }
 
 // Code Snippet : Modal
-let showModal = document.querySelector(".fa-code");
+let showSnippetButton = document.querySelector(".fa-code");
+let clickOnMeButton = document.querySelector(".button");
+let closeModalButton = document.querySelector(".fa-xmark");
 let modal = document.querySelector(".modal");
-showModal.addEventListener("click", () => {
-  loadCode();
-  modal.style.display = "block";
-});
+let modalBox = document.querySelector(".modalBox");
+let isModalOpen = false;
 
-let closeModal = document.querySelector(".fa-xmark");
-closeModal.addEventListener("click", () => {
-  modal.style.display = "none";
-});
+function handleOpenModal() {
+    loadCode();
+    modal.style.display = "block";
+    isModalOpen = true;
+}
+
+function handleCloseModal() {
+    modal.style.display = "none";
+    isModalOpen = false;
+}
+
+showSnippetButton.addEventListener("click", handleOpenModal);
+clickOnMeButton.addEventListener("click", handleOpenModal);
+closeModalButton.addEventListener("click", handleCloseModal);
+document.addEventListener(
+    "click",
+    function (event) {
+        if (isModalOpen) {
+            let isClickInsideModal = modalBox.contains(event.target);
+            if (!isClickInsideModal) handleCloseModal();
+        }
+    },
+    true
+);
 
 // Code Snippet : Code Copy
 // Code Snippet : Copied Alert Box
@@ -162,19 +193,19 @@ let copyAlert1 = document.getElementById("copyAlert1");
 let copyAlert2 = document.getElementById("copyAlert2");
 
 htmlCopy.addEventListener("click", () => {
-  let copyText = htmlCode.innerText;
-  navigator.clipboard.writeText(copyText);
-  copyAlert1.style.display = "inline";
-  setTimeout(() => {
-    copyAlert1.style.display = "none";
-  }, 500);
+    let copyText = htmlCode.innerText;
+    navigator.clipboard.writeText(copyText);
+    copyAlert1.style.display = "inline";
+    setTimeout(() => {
+        copyAlert1.style.display = "none";
+    }, 500);
 });
 
 cssCopy.addEventListener("click", () => {
-  let copyText = cssCode.innerText;
-  navigator.clipboard.writeText(copyText);
-  copyAlert2.style.display = "inline";
-  setTimeout(() => {
-    copyAlert2.style.display = "none";
-  }, 500);
+    let copyText = cssCode.innerText;
+    navigator.clipboard.writeText(copyText);
+    copyAlert2.style.display = "inline";
+    setTimeout(() => {
+        copyAlert2.style.display = "none";
+    }, 500);
 });
