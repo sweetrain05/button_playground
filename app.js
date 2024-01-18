@@ -128,7 +128,7 @@ function loadCode() {
         &nbsp;&nbsp;&nbsp;border-width: ${borderThickness.value}px; <br>
 		${
             btn.style.borderStyle
-                ? `&nbsp;&nbsp;&nbsp;border-style: ${btn.style.borderStyle}<br>`
+                ? `&nbsp;&nbsp;&nbsp;border-style: ${btn.style.borderStyle}; <br>`
                 : ""
         }
         &nbsp;&nbsp;&nbsp;border-radius: ${borderRadius.value}px; <br><br>
@@ -136,12 +136,12 @@ function loadCode() {
         &nbsp;&nbsp;&nbsp;font-size: ${fontSize.value}px; <br>
 		${
             btn.style.fontWeight === "900"
-                ? `&nbsp;&nbsp;&nbsp;font-weight: ${btn.style.fontWeight}<br>`
+                ? `&nbsp;&nbsp;&nbsp;font-weight: ${btn.style.fontWeight}; <br>`
                 : ""
         }
 		${
             btn.style.fontStyle === "italic"
-                ? `&nbsp;&nbsp;&nbsp;font-style: ${btn.style.fontStyle}<br>`
+                ? `&nbsp;&nbsp;&nbsp;font-style: ${btn.style.fontStyle}; <br>`
                 : ""
         }
 		<br>
